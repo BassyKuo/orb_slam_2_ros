@@ -891,6 +891,7 @@ int Initializer::CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::Ke
 
         if(cosParallax<0.99998)
             vbGood[vMatches12[i].first]=true;
+            nGood++;    // [add] https://github.com/raulmur/ORB_SLAM2/issues/59#issuecomment-210360275
     }
 
     if(nGood>0)
