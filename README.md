@@ -4,12 +4,30 @@ The original implementation can be found [here](https://github.com/raulmur/ORB_S
 
 # ORB-SLAM2 ROS node
 This is the ROS implementation of the ORB-SLAM2 real-time SLAM library for **Monocular**, **Stereo** and **RGB-D** cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time. This implementation removes the Pangolin dependency, and the original viewer. All data I/O is handled via ROS topics. For vizualization you can use RViz. This repository is maintained by [Lennart Haller](http://lennarthaller.de) on behalf of [appliedAI](http://appliedai.de).
+
+:eight_pointed_black_star: **In this fork, you can run the launch file to see the vizualization:**
+
+    roslaunch orb_slam2_ros orb_slam2_airsim_mono.launch
+please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) and [image source path](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/Data/rviz.rviz#L150) to your own case.
+
 ## Features
+#### [this fork add]
+
+> Execute environment: Ubuntu 16.04 , ROS-Kinetic
+
+- [x] support PointCloud Visualization with RViz. (Default config: `Data/rviz.rviz`)
+- [x] support [AirSim ROS node](https://github.com/Mayankm96/airsim_ros_client) connection. (Need to install [AirSim](https://microsoft.github.io/AirSim/docs/build_linux/) first and download one [environment](https://github.com/Microsoft/AirSim/releases) as your simulation environment.)
+:eight_pointed_black_star: Please change [the camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) if you use other camera source.
+
+#### [origin]
 - Full ROS compatibility
 - Supports a lot of cameras out of the box, such as the Intel RealSense family. See the run section for a list
 - Data I/O via ROS topics
 - Parameters can be set with the rqt_reconfigure gui during runtime
 - Very quick startup through considerably sped up vocab file loading
+
+
+
 
 ### Related Publications:
 [Monocular] Raúl Mur-Artal, J. M. M. Montiel and Juan D. Tardós. **ORB-SLAM: A Versatile and Accurate Monocular SLAM System**. *IEEE Transactions on Robotics,* vol. 31, no. 5, pp. 1147-1163, 2015. (**2015 IEEE Transactions on Robotics Best Paper Award**). **[PDF](http://webdiis.unizar.es/~raulmur/MurMontielTardosTRO15.pdf)**.
@@ -56,6 +74,7 @@ A C++11 compiler is needed.
 ## Getting the code
 Clone the repository into your catkin workspace:
 ```
+cd ${catkin_workspace}/src
 git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
 ```
 
@@ -75,14 +94,15 @@ Otherwise Eigen can be installed as a binary with:
 ```
 sudo apt install libeigen3-dev
 ```
-**Required at least Eigen 3.1.0**.
+
+**Required at least Eigen 3.1.0**. (Using Eigen 3.3.7 is OK in Ubuntu 16.04)
 
 ## Building
-To build the node run
+Go back to your catkin folder, and build the node:
 ```
+cd ${catkin_workspace}
 catkin build
 ```
-in your catkin folder.
 
 # 3. Configuration
 ## Config file
