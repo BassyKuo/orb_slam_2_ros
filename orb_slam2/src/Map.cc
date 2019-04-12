@@ -109,6 +109,25 @@ vector<MapPoint*> Map::GetReferenceMapPoints()
     return mvpReferenceMapPoints;
 }
 
+//bool Map::isMapUpdated()
+//{
+//    unique_lock<mutex> lock(mMutexMap);
+//    return mbMapUpdated;
+//}
+//
+//void Map::SetFlagAfterBA()
+//{
+//    unique_lock<mutex> lock(mMutexMap);
+//    mbMapUpdated=true;
+//
+//}
+//
+//void Map::ResetUpdated()
+//{
+//    unique_lock<mutex> lock(mMutexMap);
+//    mbMapUpdated=false;
+//}
+
 long unsigned int Map::GetMaxKFid()
 {
     unique_lock<mutex> lock(mMutexMap);

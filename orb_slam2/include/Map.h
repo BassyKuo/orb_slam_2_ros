@@ -55,6 +55,10 @@ public:
     long unsigned int MapPointsInMap();
     long unsigned  KeyFramesInMap();
 
+    //void SetFlagAfterBA();  //from ORB_SLAM
+    //bool isMapUpdated();    //from ORB_SLAM
+    //void ResetUpdated();    //from ORB_SLAM
+
     long unsigned int GetMaxKFid();
 
     void clear();
@@ -78,8 +82,9 @@ protected:
     int mnBigChangeIdx;
 
     std::mutex mMutexMap;
+    //bool mbMapUpdated;      //from ORB_SLAM
 };
 
-} //namespace ORB_SLAM
+} //namespace ORB_SLAM2
 
 #endif // MAP_H

@@ -81,6 +81,9 @@ public:
         NOT_INITIALIZED=1,
         OK=2,
         LOST=3
+        //INITIALIZING=2,     //from ORB_SLAM
+        //WORKING=3,          //from ORB_SLAM
+        //LOST=4              //from ORB_SLAM
     };
 
     eTrackingState mState;
