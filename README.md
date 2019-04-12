@@ -1,3 +1,5 @@
+[![OS Version](https://img.shields.io/badge/OS-ubuntu%2016.04-blue.svg)](https://shields.io/) [![ROS Distro](https://img.shields.io/badge/ROS-kinetic-blue.svg)](https://shields.io/) [![Eigen3](https://img.shields.io/badge/Eigen3-3.3.7-blue.svg)](http://eigen.tuxfamily.org) [![Mono RViz](https://img.shields.io/badge/Mono%20RViz-OK-green.svg)](https://shields.io/) [![Stereo RViz](https://img.shields.io/badge/Stereo%20RViz-untested-lightgrey.svg)](https://shields.io/) [![RGBD RViz](https://img.shields.io/badge/RGBD%20RViz-untested-lightgrey.svg)](https://shields.io/)
+
 # ORB-SLAM2
 **ORB-SLAM2 Authors:** [Raul Mur-Artal](http://webdiis.unizar.es/~raulmur/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/), [J. M. M. Montiel](http://webdiis.unizar.es/~josemari/) and [Dorian Galvez-Lopez](http://doriangalvez.com/) ([DBoW2](https://github.com/dorian3d/DBoW2)).
 The original implementation can be found [here](https://github.com/raulmur/ORB_SLAM2.git).
@@ -5,19 +7,33 @@ The original implementation can be found [here](https://github.com/raulmur/ORB_S
 # ORB-SLAM2 ROS node
 This is the ROS implementation of the ORB-SLAM2 real-time SLAM library for **Monocular**, **Stereo** and **RGB-D** cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time. This implementation removes the Pangolin dependency, and the original viewer. All data I/O is handled via ROS topics. For vizualization you can use RViz. This repository is maintained by [Lennart Haller](http://lennarthaller.de) on behalf of [appliedAI](http://appliedai.de).
 
-:eight_pointed_black_star: **In this fork, you can run the launch file to see the vizualization:**
-
+##### In this fork, you can run the following code to see the vizualization:
     roslaunch orb_slam2_ros orb_slam2_airsim_mono.launch
-please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) and [image source path](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/Data/rviz.rviz#L150) to your own case.
+##### or use your camera source and setting:
+    roslaunch orb_slam2_ros orb_slam2_airsim_mono.launch CAMERA_SOURCE:=<camera_source_rostopic> SETTING_FILE:=<setting_file_path> 
+##### You can change the [camera topic](./ros/launch/orb_slam2_airsim_mono.launch#L2L3) and [rviz image source](./Data/rviz.rviz#L150) to your own case.
 
 ## Features
 #### [this fork add]
-
-> Execute environment: Ubuntu 16.04 , ROS-Kinetic
-
 - [x] support PointCloud Visualization with RViz. (Default config: `Data/rviz.rviz`)
-- [x] support [AirSim ROS node](https://github.com/Mayankm96/airsim_ros_client) connection. (Need to install [AirSim](https://microsoft.github.io/AirSim/docs/build_linux/) first and download one [environment](https://github.com/Microsoft/AirSim/releases) as your simulation environment.)
-:eight_pointed_black_star: Please change [the camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) if you use other camera source.
+- [x] support [AirSim ROS node](https://github.com/Mayankm96/airsim_ros_client) connection. (Need to install [AirSim](https://microsoft.github.io/AirSim/docs/build_linux/) first and download at least one [environment](https://github.com/Microsoft/AirSim/releases) as your simulation environment.)
+
+##### ▸ related file locations:
+```
+├── Data
+│   └── rviz.rviz                           <--- RViz settings
+├── orb_slam2
+│   └── config
+│       └── Airsim_Mono.yaml                <--- ORB_SLAM2 settings for AirSim scene (resolution: 640x480)
+└── ros
+    └── launch
+        └── orb_slam2_airsim_mono.launch    <--- launch file for ORB_SLAM2 with AirSim connection & RViz visualization 
+```
+
+###### (Please change the [camera topic](./ros/launch/orb_slam2_airsim_mono.launch#L2L3) and [rviz image source](./Data/rviz.rviz#L150) if you use different camera source.)
+
+![demo](./Data/vis_demo.png)
+
 
 #### [origin]
 - Full ROS compatibility
@@ -25,8 +41,6 @@ please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob
 - Data I/O via ROS topics
 - Parameters can be set with the rqt_reconfigure gui during runtime
 - Very quick startup through considerably sped up vocab file loading
-
-
 
 
 ### Related Publications:
@@ -75,7 +89,7 @@ A C++11 compiler is needed.
 Clone the repository into your catkin workspace:
 ```
 cd ${catkin_workspace}/src
-git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
+git clone https://github.com/BassyKuo/orb_slam_2_ros.git
 ```
 
 ## ROS
@@ -175,5 +189,5 @@ to get the depth stream.
 **Solution:**
 install the rgbd-launch package with the command (make sure to adjust the ROS distro if needed):
 ```
-sudo apt install ros-melodic-rgbd-launch
+sudo apt install ros-kinetic-rgbd-launch
 ```
