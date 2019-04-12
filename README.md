@@ -5,20 +5,20 @@ The original implementation can be found [here](https://github.com/raulmur/ORB_S
 # ORB-SLAM2 ROS node
 This is the ROS implementation of the ORB-SLAM2 real-time SLAM library for **Monocular**, **Stereo** and **RGB-D** cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time. This implementation removes the Pangolin dependency, and the original viewer. All data I/O is handled via ROS topics. For vizualization you can use RViz. This repository is maintained by [Lennart Haller](http://lennarthaller.de) on behalf of [appliedAI](http://appliedai.de).
 
-:eight_pointed_black_star: **In this fork, you can run the launch file to see the vizualization:**
-
+##### In this fork, you can run the launch file to see the vizualization:
     roslaunch orb_slam2_ros orb_slam2_airsim_mono.launch
 ##### please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) and [image source path](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/Data/rviz.rviz#L150) to your own case.
 
 ## Features
+[![OS Version](https://img.shields.io/badge/OS%20Version-ubuntu%2016.04-blue.svg)](https://shields.io/) [![ROS Distro](https://img.shields.io/badge/ROS%20Distro-kinetic-blue.svg)](https://shields.io/)
+
 #### [this fork add]
-
-> Execute environment: Ubuntu 16.04 , ROS-Kinetic
-
 - [x] support PointCloud Visualization with RViz. (Default config: `Data/rviz.rviz`)
-- [x] support [AirSim ROS node](https://github.com/Mayankm96/airsim_ros_client) connection. (Need to install [AirSim](https://microsoft.github.io/AirSim/docs/build_linux/) first and download one [environment](https://github.com/Microsoft/AirSim/releases) as your simulation environment.)
+- [x] support [AirSim ROS node](https://github.com/Mayankm96/airsim_ros_client) connection. (Need to install [AirSim](https://microsoft.github.io/AirSim/docs/build_linux/) first and download at least one [environment](https://github.com/Microsoft/AirSim/releases) as your simulation environment.)
 
-##### :eight_pointed_black_star: Please change [the camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) if you use different camera source.
+##### Please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) if you use different camera source.
+
+![demo](./Data/vis_demo.png)
 
 #### [origin]
 - Full ROS compatibility
