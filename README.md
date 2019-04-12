@@ -8,7 +8,7 @@ This is the ROS implementation of the ORB-SLAM2 real-time SLAM library for **Mon
 :eight_pointed_black_star: **In this fork, you can run the launch file to see the vizualization:**
 
     roslaunch orb_slam2_ros orb_slam2_airsim_mono.launch
-please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) and [image source path](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/Data/rviz.rviz#L150) to your own case.
+##### please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) and [image source path](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/Data/rviz.rviz#L150) to your own case.
 
 ## Features
 #### [this fork add]
@@ -17,7 +17,8 @@ please change the [camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob
 
 - [x] support PointCloud Visualization with RViz. (Default config: `Data/rviz.rviz`)
 - [x] support [AirSim ROS node](https://github.com/Mayankm96/airsim_ros_client) connection. (Need to install [AirSim](https://microsoft.github.io/AirSim/docs/build_linux/) first and download one [environment](https://github.com/Microsoft/AirSim/releases) as your simulation environment.)
-:eight_pointed_black_star: Please change [the camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) if you use other camera source.
+
+##### :eight_pointed_black_star: Please change [the camera topic](https://github.com/BassyKuo/orb_slam_2_ros/blob/master/ros/launch/orb_slam2_airsim_mono.launch#L2) if you use different camera source.
 
 #### [origin]
 - Full ROS compatibility
