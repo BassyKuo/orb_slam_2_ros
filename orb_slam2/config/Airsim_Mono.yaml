@@ -39,19 +39,19 @@ ORBextractor.nLevels: 8
 # Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
 # Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
 # You can lower these values if your images have low contrast
-ORBextractor.iniThFAST: 9
-ORBextractor.minThFAST: 3
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
 
 #--------------------------------------------------------------------------------------------
-# Viewer Parameters
+# Viewer Parameters (For Panglon)
 #--------------------------------------------------------------------------------------------
-Viewer.KeyFrameSize: 0.05
-Viewer.KeyFrameLineWidth: 1
-Viewer.GraphLineWidth: 0.9
-Viewer.PointSize:2
-Viewer.CameraSize: 0.08
-Viewer.CameraLineWidth: 3
-Viewer.ViewpointX: 0
-Viewer.ViewpointY: -0.7
-Viewer.ViewpointZ: -1.8
-Viewer.ViewpointF: 500
+#Viewer.KeyFrameSize: 0.05
+#Viewer.KeyFrameLineWidth: 1
+#Viewer.GraphLineWidth: 0.9
+#Viewer.PointSize:2
+#Viewer.CameraSize: 0.08
+#Viewer.CameraLineWidth: 3
+#Viewer.ViewpointX: 0
+#Viewer.ViewpointY: -0.7
+#Viewer.ViewpointZ: -1.8
+#Viewer.ViewpointF: 500

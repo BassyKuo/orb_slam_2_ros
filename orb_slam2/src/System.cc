@@ -489,6 +489,10 @@ std::vector<MapPoint*> System::GetAllMapPoints() {
   return mpMap->GetAllMapPoints();
 }
 
+std::vector<MapPoint*> System::GetReferenceMapPoints() {
+  return mpMap->GetReferenceMapPoints();
+}
+
 void System::ActivateLocalizationMode()
 {
     unique_lock<mutex> lock(mMutexMode);

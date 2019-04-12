@@ -476,6 +476,7 @@ int ORBmatcher::SearchForInitialization(Frame &F1, Frame &F2, vector<cv::Point2f
                     if(rot<0.0)
                         rot+=360.0f;
                     int bin = round(rot*factor);
+                    //int bin = round(rot/(360.0f*factor)); // [add] https://github.com/raulmur/ORB_SLAM2/issues/59#issuecomment-328763548
                     if(bin==HISTO_LENGTH)
                         bin=0;
                     assert(bin>=0 && bin<HISTO_LENGTH);

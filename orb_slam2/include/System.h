@@ -35,6 +35,7 @@
 #include "KeyFrameDatabase.h"
 #include "ORBVocabulary.h"
 
+
 namespace ORB_SLAM2
 {
 class FrameDrawer;
@@ -42,6 +43,7 @@ class Map;
 class Tracking;
 class LocalMapping;
 class LoopClosing;
+
 
 class System
 {
@@ -124,6 +126,7 @@ public:
     cv::Mat DrawCurrentFrame ();
 
     std::vector<MapPoint*> GetAllMapPoints();
+    std::vector<MapPoint*> GetReferenceMapPoints();
 
 private:
     // This stops local mapping thread (map building) and performs only camera tracking.
@@ -184,6 +187,6 @@ private:
     cv::Mat current_position_;
 };
 
-}// namespace ORB_SLAM
+}// namespace ORB_SLAM2
 
 #endif // SYSTEM_H

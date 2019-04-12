@@ -39,6 +39,8 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <geometry_msgs/PoseStamped.h>
 
+#include <std_msgs/String.h>
+
 #include "System.h"
 
 
@@ -56,18 +58,19 @@ class Node
     ros::Time current_frame_time_;
 
   private:
-    void PublishMapPoints (std::vector<ORB_SLAM2::MapPoint*> map_points);
+    void PublishMapPoints (std::vector<ORB_SLAM2::MapPoint*> map_points, std::vector<ORB_SLAM2::MapPoint*> ref_map_points);
     void PublishPositionAsTransform (cv::Mat position);
     void PublishPositionAsPoseStamped(cv::Mat position);
     void PublishRenderedImage (cv::Mat image);
     void ParamsChangedCallback(orb_slam2_ros::dynamic_reconfigureConfig &config, uint32_t level);
     tf::Transform TransformFromMat (cv::Mat position_mat);
-    sensor_msgs::PointCloud2 MapPointsToPointCloud (std::vector<ORB_SLAM2::MapPoint*> map_points);
+    sensor_msgs::PointCloud2 MapPointsToPointCloud (std::vector<ORB_SLAM2::MapPoint*> map_points, std::vector<ORB_SLAM2::MapPoint*> ref_map_points, int rgb, int ref_rgb);
 
     dynamic_reconfigure::Server<orb_slam2_ros::dynamic_reconfigureConfig> dynamic_param_server_;
 
     image_transport::Publisher rendered_image_publisher_;
     ros::Publisher map_points_publisher_;
+    ros::Publisher debug_map_points_publisher_;
     ros::Publisher pose_publisher_;
 
     std::string name_of_node_;
