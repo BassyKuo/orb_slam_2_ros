@@ -30,7 +30,7 @@ This is the ROS implementation of the ORB-SLAM2 real-time SLAM library for **Mon
         └── orb_slam2_airsim_mono.launch    <--- launch file for ORB_SLAM2 with AirSim connection & RViz visualization 
 ```
 
-###### Please change the [camera topic](./ros/launch/orb_slam2_airsim_mono.launch#L2L3) and [rviz image source](./Data/rviz.rviz#L150) if you use different camera source.
+###### (Please change the [camera topic](./ros/launch/orb_slam2_airsim_mono.launch#L2L3) and [rviz image source](./Data/rviz.rviz#L150) if you use different camera source.)
 
 ![demo](./Data/vis_demo.png)
 
