@@ -1,11 +1,14 @@
 <launch>
-    <remap to="/airsim/rgb/image_raw" from="/camera/image_raw" />
+    <arg name="SETTING_FILE" default="$(find orb_slam2_ros)/orb_slam2/config/Airsim_Mono.yaml" />
+    <arg name="CAMERA_SOURCE" default="/airsim/rgb/image_raw" />
+
+    <remap to="$(arg CAMERA_SOURCE)" from="/camera/image_raw" />
 
     <!-- ORB_SLAM2 Mono Node -->
     <node name="orb_slam2_mono" pkg="orb_slam2_ros"
             type="orb_slam2_ros_mono" args="
             $(find orb_slam2_ros)/orb_slam2/Vocabulary/ORBvoc.txt
-            $(find orb_slam2_ros)/orb_slam2/config/Airsim_Mono.yaml"
+            $(arg SETTING_FILE)"
             output="screen">
         <!-- <remap from="/camera/image_raw" to="/camera/rgb/image_raw" /> -->
 
